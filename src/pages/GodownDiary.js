@@ -6,7 +6,7 @@ function GodownDiary() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
+  /*useEffect(() => {
     loadData();
   }, [filter]);
 
@@ -19,7 +19,23 @@ function GodownDiary() {
       console.error('Error loading godown diary:', error);
       setLoading(false);
     }
+  }; */
+
+  useEffect(() => {
+  const loadData = async () => {
+    try {
+      const res = await apiService.getGodownDiary(filter);
+      setData(res.data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
+
+  loadData();
+}, [filter]);
+
 
   if (loading) {
     return <div className="loading">Loading godown diary...</div>;
