@@ -7,7 +7,7 @@ function PurchaseOrders() {
   const [products, setProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    orderNo: '', orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: []
+    orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: []
   });
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function PurchaseOrders() {
       };
       await apiService.createPurchaseOrder(submitData);
       setShowModal(false);
-      setFormData({ orderNo: '', orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: [] });
+      setFormData({ orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: [] });
       loadOrders();
       alert('Purchase Order created successfully!');
     } catch (error) {
@@ -92,7 +92,7 @@ function PurchaseOrders() {
       <div className="card">
         <div className="card-header">
           <h2 className="card-title">Purchase Order List</h2>
-          <button className="btn btn-primary" onClick={() => { setShowModal(true); setFormData({ orderNo: '', orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: [] }); }}>
+          <button className="btn btn-primary" onClick={() => { setShowModal(true); setFormData({ orderDate: new Date().toISOString().split('T')[0], vendors: '', notes: '', godown: 'Main Warehouse', details: [] }); }}>
             + Create Purchase Order
           </button>
         </div>
@@ -126,8 +126,13 @@ function PurchaseOrders() {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Order No *</label>
-                  <input type="text" className="form-control" value={formData.orderNo} onChange={(e) => setFormData({...formData, orderNo: e.target.value})} required />
+                  <label className="form-label">Order No</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value="Auto Generated"
+                    disabled
+                  />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Order Date *</label>
