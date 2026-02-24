@@ -126,7 +126,7 @@ function SalesOrders() {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Order No</label>
+                  <label className="form-label">Sales No</label>
                   <input
                     type="text"
                     className="form-control"
