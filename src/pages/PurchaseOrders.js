@@ -98,7 +98,7 @@ function PurchaseOrders() {
         </div>
         <table>
           <thead>
-            <tr><th>Order No</th><th>Date</th><th>Vendor</th><th>Total Amount</th><th>Actions</th></tr>
+            <tr><th>Purc No</th><th>Date</th><th>Vendor</th><th>Total Amount</th><th>Actions</th></tr>
           </thead>
           <tbody>
             {orders.map(order => (

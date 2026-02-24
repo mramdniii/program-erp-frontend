@@ -98,7 +98,7 @@ function SalesOrders() {
         </div>
         <table>
           <thead>
-            <tr><th>Order No</th><th>Date</th><th>Customer</th><th>Total Amount</th><th>Actions</th></tr>
+            <tr><th>Sales No</th><th>Date</th><th>Customer</th><th>Total Amount</th><th>Actions</th></tr>
           </thead>
           <tbody>
             {orders.map(order => (
